@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap mp iot rescap">
+
+  <Identity
+    Name="e71e2025-f90b-4e61-acf4-34021d5c2ae0"
+    Publisher="CN=B4CONPC"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="e71e2025-f90b-4e61-acf4-34021d5c2ae0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>DS_AutoMessager</DisplayName>
+    <PublisherDisplayName>B4CONPC</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="DS_AutoMessager.App">
+      <uap:VisualElements
+        DisplayName="DS_AutoMessager"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="DS_AutoMessager"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <iot:Capability Name="systemManagement"/>
+	<rescap:Capability Name="inputInjectionBrokered"/>
+  </Capabilities>
+</Package>
