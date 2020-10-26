@@ -17,8 +17,9 @@
             <ComboBoxItem Content="Seconds"/>
             <ComboBoxItem Content="Minutes"/>
         </ComboBox>
-        <Button x:Name="btnStart" Content="START" Margin="341,438,0,0" VerticalAlignment="Top" Width="129" Background="#FF20AA26" Click="btnStart_Click"/>
+        <Button x:Name="btnStart" Content="START" Margin="341,438,0,0" VerticalAlignment="Top" Width="62" Background="#FF20AA26" Click="btnStart_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,414,0,0" Text="Repeat every..." TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="textError" HorizontalAlignment="Center" Margin="0,487,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Foreground="Red" TextAlignment="Center" FontWeight="Normal" TextDecorations="Underline" FontStyle="Italic"/>
+        <Button x:Name="btnStop" Content="STOP" Margin="408,438,0,0" VerticalAlignment="Top" Width="62" Background="#FFBF1616" Click="btnStop_Click"/>
     </Grid>
 </Page>

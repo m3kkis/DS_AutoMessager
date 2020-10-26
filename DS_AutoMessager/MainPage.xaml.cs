@@ -31,6 +31,21 @@ namespace DS_AutoMessager
             this.InitializeComponent();
         }
 
+        public static class GlobalVars {
+            private static bool _expired;
+            public static bool Expired
+            {
+                get
+                {
+                    return _expired;
+                }
+                set
+                {
+                    _expired = value;
+                }
+            }
+        }
+
         private void btnAddText_Click(object sender, RoutedEventArgs e)
         {
             if (textInput.Text != "")
@@ -108,14 +123,21 @@ namespace DS_AutoMessager
 
                         await Task.Delay(5000);
 
-                        for (int i = 0; i < textList.Items.Count; i++)
-                        {
-                            string line = textList.Items[i].ToString();
+                        GlobalVars.Expired = true;
 
-                            startTypingOnKeyboard(line);
-                            await Task.Delay(1000);
-                            //Debug.WriteLine();
+                        while (GlobalVars.Expired)
+                        {
+                            for (int i = 0; i < textList.Items.Count; i++)
+                            {
+                                string line = textList.Items[i].ToString();
+
+                                startTypingOnKeyboard(line);
+                                await Task.Delay(1000);
+                                //Debug.WriteLine();
+                            }
                         }
+
+                 
                     }
                 }
             }
@@ -158,6 +180,11 @@ namespace DS_AutoMessager
             enter.VirtualKey = (ushort)(VirtualKey.Enter);
             enter.KeyOptions = InjectedInputKeyOptions.None;
             inputInjector.InjectKeyboardInput(new[] { enter });
+        }
+
+        private void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            GlobalVars.Expired = false;
         }
     }
 }
